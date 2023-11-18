@@ -1,5 +1,7 @@
 import { React, useState} from 'react';
 import AddUser from '../components/AddUser';
+import ManufactureMedicine from "../components/ManufactureMedicine";
+import SellMedicine from "../components/SellMedicine";
 
 
 const App = () => {

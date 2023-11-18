@@ -1,10 +1,10 @@
-// ContractInteractionComponent.jsx
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import WalletConnect from './../utils/WalletConnect';
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from './../utils/contractDetails';
+import './AddUser.css';
 
-const ContractInteractionComponent = () => {
+const AppUser = () => {
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [contract, setContract] = useState(null);
@@ -13,16 +13,22 @@ const ContractInteractionComponent = () => {
   const [userToUpdate, setUserToUpdate] = useState('');
   const [newUserRoleUpdate, setNewUserRoleUpdate] = useState('');
   const [connectedWallet, setConnectedWallet] = useState('');
+  const [userRole, setUserRole] = useState(null);
+  const [userMedicineCount, setUserMedicineCount] = useState(null);
+  const [newOwnerAddress, setNewOwnerAddress] = useState('');
 
   useEffect(() => {
     const initWeb3 = async () => {
       try {
         if (window.ethereum) {
           const web3Instance = new Web3(window.ethereum);
-          await window.ethereum.enable();
           setWeb3(web3Instance);
 
-          const accounts = await web3Instance.eth.getAccounts();
+          // Request account access using eth_requestAccounts
+          const accounts = await window.ethereum.request({
+            method: 'eth_requestAccounts'
+          });
+
           setAccounts(accounts);
 
           const contract = new web3Instance.eth.Contract(
@@ -40,6 +46,24 @@ const ContractInteractionComponent = () => {
 
     initWeb3();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (contract && accounts.length > 0) {
+        try {
+          const fetchedUserRole = await contract.methods.getUserRole(accounts[0]).call();
+          setUserRole(fetchedUserRole);
+
+          const fetchedMedicineCount = await contract.methods.getUserMedicineCount(accounts[0]).call();
+          setUserMedicineCount(fetchedMedicineCount);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+    };
+
+    fetchData();
+  }, [contract, accounts]);
 
   const handleAddUser = async () => {
     try {
@@ -59,22 +83,60 @@ const ContractInteractionComponent = () => {
     }
   };
 
+  const handleGetUserRole = async () => {
+    try {
+      const fetchedUserRole = await contract.methods.getUserRole(accounts[0]).call();
+      setUserRole(fetchedUserRole);
+      console.log('User Role: ',userRole);
+    } catch (error) {
+      console.error('Error fetching user role:', error);
+    }
+  };
+
+  const handleGetMedicineCount = async () => {
+    try {
+      const fetchedMedicineCount = await contract.methods.getUserMedicineCount(accounts[0]).call();
+      setUserMedicineCount(fetchedMedicineCount);
+      console.log('User Medicine Count: ',userMedicineCount);
+    } catch (error) {
+      console.error('Error fetching medicine count:', error);
+    }
+  };
+
   const handleWalletConnect = (walletAddress) => {
     // Perform any additional actions when the wallet is connected
     console.log(`Wallet connected: ${walletAddress}`);
     setConnectedWallet(walletAddress);
   };
 
+  const handleTransferOwnership = async () => {
+    try {
+      await contract.methods.transferOwnership(newOwnerAddress).send({ from: accounts[0] });
+      console.log('Ownership transferred successfully');
+    } catch (error) {
+      console.error('Error transferring ownership:', error);
+    }
+  };
+
   return (
     <div>
-      <h1>Contract Interaction</h1>
+      <h1>App User Interaction</h1>
       <WalletConnect onWalletConnect={handleWalletConnect} />
       {connectedWallet && (
         <div>
           <p>Connected Wallet: {connectedWallet}</p>
+          {userRole !== null && (
+            <p>User Role: {userRole}</p>
+          )}
+          {userMedicineCount !== null && (
+            <p>User Medicine Count: {userMedicineCount}</p>
+          )}
         </div>
       )}
-      <div>
+      <br />
+      <br />
+      <div className='cards-container'>
+      <div className='card'>
         <h2>Add User</h2>
         <input
           type="text"
@@ -90,7 +152,7 @@ const ContractInteractionComponent = () => {
         />
         <button onClick={handleAddUser}>Add User</button>
       </div>
-      <div>
+      <div className='card'>
         <h2>Update User Role</h2>
         <input
           type="text"
@@ -106,8 +168,27 @@ const ContractInteractionComponent = () => {
         />
         <button onClick={handleUpdateUserRole}>Update User Role</button>
       </div>
+      <div className='card'>
+        <h2>Get User Role</h2>
+        <button onClick={handleGetUserRole}>Get User Role</button>
+      </div>
+      <div className='card'>
+        <h2>Get Medicine Count</h2>
+        <button onClick={handleGetMedicineCount}>Get Medicine Count</button>
+      </div>
+      <div className='card'>
+        <h2>Transfer Ownership</h2>
+        <input
+          type="text"
+          placeholder="New Owner Address"
+          value={newOwnerAddress}
+          onChange={(e) => setNewOwnerAddress(e.target.value)}
+        />
+        <button onClick={handleTransferOwnership}>Transfer Ownership</button>
+      </div>
+      </div>
     </div>
   );
 };
 
-export default ContractInteractionComponent;
+export default AppUser;

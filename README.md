@@ -1,5 +1,6 @@
 # ChainRx
 ![ChainRx](https://github.com/SanatKulkarni/ChainRx/assets/87092449/1b50278f-5c7c-4aa5-a5c8-c31ec6c393e7)
+
 ChainRx - Web3 Based Pharmaceutical Supply Chain Management System using Blockchain Technology. 
 
 # Problem Statement:

@@ -3,12 +3,6 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: linear-gradient(
-      60deg, 
-      #000000 0%,
-      #808080 30%, /* Darker red color */
-      #D3D3D3 100% /* Darker light red color */
-    );
     display: flex;
     align-items: center;
     justify-content: center;

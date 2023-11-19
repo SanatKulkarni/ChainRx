@@ -4,24 +4,25 @@ import HomePage from '../components/HomePage';
 import AddUser from '../components/AddUser';
 import ManufactureMedicine from '../components/ManufactureMedicine';
 import SellMedicine from '../components/SellMedicine';
+import './App.css'; // Import your CSS file for styling
 
 const App = () => {
   return (
     <Router>
       <div>
-        <nav>
+        <nav className="navbar">
           <ul>
             <li>
               <Link to="/Home">Home</Link>
             </li>
             <li>
-              <Link to="/add-user">Add User</Link>
+              <Link to="/Add-User">Add User</Link>
             </li>
             <li>
-              <Link to="/manufacture-medicine">Manufacture Medicine</Link>
+              <Link to="/Manufacture-Medicine">Manufacture Medicine</Link>
             </li>
             <li>
-              <Link to="/sell-medicine">Sell Medicine</Link>
+              <Link to="/Sell-Medicine">Sell Medicine</Link>
             </li>
           </ul>
         </nav>
@@ -36,7 +37,5 @@ const App = () => {
     </Router>
   );
 };
-
-
 
 export default App;

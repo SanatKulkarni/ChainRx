@@ -40,3 +40,33 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App.css or your custom CSS file */
+.navbar {
+  background-color: #333; /* Set your desired background color */
+  overflow: hidden;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar a {
+  display: block;
+  color: white; /* Set your desired text color */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd; /* Set your desired background color on hover */
+  color: black; /* Set your desired text color on hover */
+}

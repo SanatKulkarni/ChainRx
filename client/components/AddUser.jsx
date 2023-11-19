@@ -4,6 +4,7 @@ import WalletConnect from './../utils/WalletConnect';
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from './../utils/contractDetails';
 import './AddUser.css';
 
+
 const AppUser = () => {
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);

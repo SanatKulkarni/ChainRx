@@ -7,17 +7,15 @@ const HomePage = () => {
     <div className="homepage">
       <header>
         <h1>ChainRx: Web3 Based Pharma Supply Chain Management</h1>
-        <p>Explore and enjoy the experience!</p>
+        <p>Experience the World of Transparent and Fully Trustable Pharmaceutical Supply Chain Systems</p>
       </header>
       <section className="main-content">
         <div className="animation-container">
           <div className="box"></div>
         </div>
-        <p>This is some engaging content on your homepage.</p>
+        <p><br />Team Name: Solosolo <br /><br /> Sanat Kulkarni <br /> Ansh Kirdak <br /> Aditya Dutt <br /> Rajveer Singh Khanduja</p>
       </section>
-      <footer>
-        <p>Contact us for more information</p>
-      </footer>
+    
     </div>
   );
 };

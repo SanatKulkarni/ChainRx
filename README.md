@@ -22,7 +22,7 @@ Developing an innovative Pharma Supply Chain Management system, ChainRx-Web3, ut
 - Sell Medicine: Distributors or retailers can sell a quantity of medicine to another address, updating the quantity available for the batch.
 
 # Challenges Faced: 
-- Blockchain Integration Complexity: Integrating Web3 and blockchain technology can be intricate, requiring a deep understanding of decentralized systems, smart contracts, and consensus algorithms.
+- Blockchain Integration Complexity: Integrating Web3 and blockchain technology can be intricate, requiring a deep understanding of decentralized systems, smart contracts, and consensus algorithm.
 - Absence of Decentralized nature to some degree: Although the entire project is built on the blockchain network of MUMBAI + ETHEREUM, it is not completely decentralized in nature as a manufacturer can only be created after thorough checks of all the processes and certificates which can only be checked and issued by a Regulatory Body.
 - User Adoption and Training: Introducing a new technology to stakeholders in the pharmaceutical supply chain may face resistance or require substantial training. Ensuring user-friendly interfaces and providing comprehensive training materials will be essential for successful adoption.
 - Smart Contract Security: Writing secure smart contracts is crucial to prevent vulnerabilities and potential exploits. Rigorous testing and auditing of smart contract code are necessary to mitigate security risks.

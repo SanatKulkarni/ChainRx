@@ -7,7 +7,7 @@ const WalletConnect = ({ setWalletConnected }) => {
   const [balance, setBalance] = useState("");
 
   const mumbaiTestnetRPC =
-    "https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78";
+    "https://sepolia.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78";
   const web3 = new Web3(new Web3.providers.HttpProvider(mumbaiTestnetRPC));
 
   const connectWalletHandler = async () => {
@@ -42,7 +42,7 @@ const WalletConnect = ({ setWalletConnected }) => {
         {walletAddress
           ? `${walletAddress.substring(0, 5)}... | Balance: ${parseFloat(
               balance
-            ).toFixed(4)} MATIC`
+            ).toFixed(4)} ETH`
           : "Connect Wallet"}
       </button>
     </div>

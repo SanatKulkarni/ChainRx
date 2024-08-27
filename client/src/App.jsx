@@ -6,6 +6,8 @@ import ManufactureMedicine from '../components/ManufactureMedicine';
 import SellMedicine from '../components/SellMedicine';
 import './App.css'; // Import your CSS file for styling
 
+
+
 const App = () => {
   return (
     <Router>

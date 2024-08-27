@@ -1,323 +1,317 @@
-export const CONTRACT_ADDRESS = "0x5503E87194cdE5F4614F3D13B7D560DD843F5dCF";
+export const CONTRACT_ADDRESS = "0xa6b364A2B85b35B3Fb05389fEd66Fc2DD368761E";
 export const CONTRACT_ABI = [
-    {
-      "type": "constructor",
-      "name": "",
-      "inputs": [],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "event",
-      "name": "MedicineManufactured",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "manufacturer",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "type": "string",
-          "name": "batchNumber",
-          "indexed": false,
-          "internalType": "string"
-        }
-      ],
-      "outputs": [],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "MedicineSold",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "seller",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "type": "address",
-          "name": "buyer",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "type": "string",
-          "name": "batchNumber",
-          "indexed": false,
-          "internalType": "string"
-        },
-        {
-          "type": "uint256",
-          "name": "quantity",
-          "indexed": false,
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "OwnershipTransferred",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "from",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "type": "address",
-          "name": "to",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "type": "string",
-          "name": "batchNumber",
-          "indexed": false,
-          "internalType": "string"
-        }
-      ],
-      "outputs": [],
-      "anonymous": false
-    },
-    {
-      "type": "event",
-      "name": "RoleUpdated",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "user",
-          "indexed": true,
-          "internalType": "address"
-        },
-        {
-          "type": "uint8",
-          "name": "newRole",
-          "indexed": false,
-          "internalType": "enum PharmaDataRegistry.UserRole"
-        }
-      ],
-      "outputs": [],
-      "anonymous": false
-    },
-    {
-      "type": "function",
-      "name": "addUser",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "user",
-          "internalType": "address"
-        },
-        {
-          "type": "uint8",
-          "name": "role",
-          "internalType": "enum PharmaDataRegistry.UserRole"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "getUserMedicine",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "user",
-          "internalType": "address"
-        },
-        {
-          "type": "uint256",
-          "name": "index",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [
-        {
-          "type": "address",
-          "name": "manufacturer",
-          "internalType": "address"
-        },
-        {
-          "type": "string",
-          "name": "name",
-          "internalType": "string"
-        },
-        {
-          "type": "string",
-          "name": "batchNumber",
-          "internalType": "string"
-        },
-        {
-          "type": "uint256",
-          "name": "manufacturingDate",
-          "internalType": "uint256"
-        },
-        {
-          "type": "uint256",
-          "name": "expiryDate",
-          "internalType": "uint256"
-        },
-        {
-          "type": "uint256",
-          "name": "price",
-          "internalType": "uint256"
-        },
-        {
-          "type": "uint256",
-          "name": "quantity",
-          "internalType": "uint256"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getUserMedicineCount",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "user",
-          "internalType": "address"
-        }
-      ],
-      "outputs": [
-        {
-          "type": "uint256",
-          "name": "",
-          "internalType": "uint256"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "getUserRole",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "user",
-          "internalType": "address"
-        }
-      ],
-      "outputs": [
-        {
-          "type": "uint8",
-          "name": "",
-          "internalType": "enum PharmaDataRegistry.UserRole"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "manufactureMedicine",
-      "inputs": [
-        {
-          "type": "string",
-          "name": "name",
-          "internalType": "string"
-        },
-        {
-          "type": "string",
-          "name": "batchNumber",
-          "internalType": "string"
-        },
-        {
-          "type": "uint256",
-          "name": "manufacturingDate",
-          "internalType": "uint256"
-        },
-        {
-          "type": "uint256",
-          "name": "expiryDate",
-          "internalType": "uint256"
-        },
-        {
-          "type": "uint256",
-          "name": "price",
-          "internalType": "uint256"
-        },
-        {
-          "type": "uint256",
-          "name": "quantity",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "owner",
-      "inputs": [],
-      "outputs": [
-        {
-          "type": "address",
-          "name": "",
-          "internalType": "address"
-        }
-      ],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
-      "name": "sellMedicine",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "buyer",
-          "internalType": "address"
-        },
-        {
-          "type": "string",
-          "name": "batchNumber",
-          "internalType": "string"
-        },
-        {
-          "type": "uint256",
-          "name": "quantity",
-          "internalType": "uint256"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "transferOwnership",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "newOwner",
-          "internalType": "address"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    },
-    {
-      "type": "function",
-      "name": "updateUserRole",
-      "inputs": [
-        {
-          "type": "address",
-          "name": "user",
-          "internalType": "address"
-        },
-        {
-          "type": "uint8",
-          "name": "newRole",
-          "internalType": "enum PharmaDataRegistry.UserRole"
-        }
-      ],
-      "outputs": [],
-      "stateMutability": "nonpayable"
-    }
-  ];
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "manufacturer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "batchNumber",
+        "type": "string"
+      }
+    ],
+    "name": "MedicineManufactured",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "seller",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "batchNumber",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      }
+    ],
+    "name": "MedicineSold",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "batchNumber",
+        "type": "string"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum PharmaDataRegistry.UserRole",
+        "name": "newRole",
+        "type": "uint8"
+      }
+    ],
+    "name": "RoleUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "enum PharmaDataRegistry.UserRole",
+        "name": "role",
+        "type": "uint8"
+      }
+    ],
+    "name": "addUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getUserMedicine",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "manufacturer",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "batchNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "manufacturingDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "expiryDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getUserMedicineCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getUserRole",
+    "outputs": [
+      {
+        "internalType": "enum PharmaDataRegistry.UserRole",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "batchNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "manufacturingDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "expiryDate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      }
+    ],
+    "name": "manufactureMedicine",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "batchNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      }
+    ],
+    "name": "sellMedicine",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "enum PharmaDataRegistry.UserRole",
+        "name": "newRole",
+        "type": "uint8"
+      }
+    ],
+    "name": "updateUserRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
